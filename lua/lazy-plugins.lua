@@ -52,6 +52,20 @@ require('lazy').setup({
   require 'plugins.todo-comments',
 
   require 'plugins.mini',
+
+  require 'plugins.colorizer',
+
+  require 'plugins.tabout',
+
+  require 'plugins.render-markdown',
+
+  require 'plugins.treesj',
+
+  -- require 'plugins.obsidian',
+
+  require 'plugins.pets',
+
+  require 'plugins.lark-syntax',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
