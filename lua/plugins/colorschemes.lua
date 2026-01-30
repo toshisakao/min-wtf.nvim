@@ -1,4 +1,13 @@
 return {
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, enabled = true },
+  {
+    'kepano/flexoki-neovim',
+    name = 'flexoki',
+    config = function()
+      vim.cmd.colorscheme 'flexoki-dark'
+    end,
+  },
+
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -49,7 +58,7 @@ return {
           light = 'lotus',
         },
       }
-      vim.cmd.colorscheme 'kanagawa-wave'
+      -- vim.cmd.colorscheme 'kanagawa-wave'
     end,
   },
   {
