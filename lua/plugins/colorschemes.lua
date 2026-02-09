@@ -3,9 +3,9 @@ return {
   {
     'kepano/flexoki-neovim',
     name = 'flexoki',
-    config = function()
-      vim.cmd.colorscheme 'flexoki-dark'
-    end,
+    -- config = function()
+    --   vim.cmd.colorscheme 'flexoki-dark'
+    -- end,
   },
 
   { -- You can easily change to a different colorscheme.
@@ -58,7 +58,7 @@ return {
           light = 'lotus',
         },
       }
-      -- vim.cmd.colorscheme 'kanagawa-wave'
+      vim.cmd.colorscheme 'kanagawa-wave'
     end,
   },
   {
