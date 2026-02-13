@@ -1,12 +1,10 @@
 return {
   {
     'folke/snacks.nvim',
+    priority = 1000,
     ---@type snacks.Config
     opts = {
       image = {
-        -- your image configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
         math = {
           enabled = true, -- enable math expression rendering
           -- in the templates below, `${header}` comes from any section in your document,
