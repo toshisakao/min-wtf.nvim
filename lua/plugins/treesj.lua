@@ -4,7 +4,8 @@ return {
     keys = { '<leader>m', '<leader>j', '<leader>s' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
     config = function()
-      require('treesj').setup {--[[ your config ]]
+      require('treesj').setup {
+        -- vim.keymap.set('n', '<leader>m', require('treesj').toggle),
       }
     end,
   },

@@ -59,7 +59,7 @@ require('lazy').setup({
 
   require 'plugins.render-markdown',
 
-  -- require 'plugins.treesj',
+  require 'plugins.treesj',
 
   -- require 'plugins.obsidian',
 
@@ -68,6 +68,8 @@ require('lazy').setup({
   require 'plugins.lark-syntax',
 
   require 'plugins.oil',
+
+  require 'plugins.snacks',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
