@@ -57,11 +57,10 @@ require('lazy').setup({
 
   -- require 'plugins.tabout',
 
+  require 'plugins.obsidian',
   require 'plugins.render-markdown',
 
   require 'plugins.treesj',
-
-  -- require 'plugins.obsidian',
 
   -- require 'plugins.pets',
 
