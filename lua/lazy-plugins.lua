@@ -13,12 +13,6 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
-
   require 'plugins.gitsigns',
 
   require 'plugins.which-key',
@@ -70,6 +64,12 @@ require('lazy').setup({
   require 'plugins.oil',
 
   require 'plugins.snacks',
+
+  require 'plugins.codedocs',
+
+  require 'plugins.neoscroll',
+
+  require 'plugins.ufo'
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
