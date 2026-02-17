@@ -1,11 +1,28 @@
 return {
+  { 'cocopon/iceberg.vim', name = 'iceberg', priority = 1000 },
+  {
+    'chriskempson/vim-tomorrow-theme',
+    name = 'tomorrow',
+    priority = 1000,
+    -- config = function()
+    --   vim.cmd.colorscheme 'Tomorrow'
+    -- end,
+  },
+  {
+    'HUAHUAI23/nvim-quietlight',
+    name = 'quietlight',
+    priority = 1000,
+    -- config = function()
+    --   vim.cmd.colorscheme 'quietlight'
+    -- end,
+  },
   {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
-    -- config = function()
-    --   vim.cmd.colorscheme 'catppuccin-mocha'
-    -- end,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin-latte'
+    end,
   },
   {
     'kepano/flexoki-neovim',
@@ -20,12 +37,12 @@ return {
     priority = 1000,
     ---@type solarized.config
     opts = {},
-    config = function(_, opts)
-      vim.o.termguicolors = true
-      vim.o.background = 'light'
-      require('solarized').setup(opts)
-      vim.cmd.colorscheme 'solarized'
-    end,
+    -- config = function(_, opts)
+    --   vim.o.termguicolors = true
+    --   vim.o.background = 'light'
+    --   require('solarized').setup(opts)
+    --   vim.cmd.colorscheme 'solarized'
+    -- end,
   },
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
