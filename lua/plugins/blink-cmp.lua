@@ -1,5 +1,16 @@
 return {
-  { -- Autocompletion
+  -- add blink.compat
+  {
+    'saghen/blink.compat',
+    -- use v2.* for blink.cmp v1.*
+    version = '2.*',
+    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    lazy = true,
+    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+    opts = {},
+  },
+  -- Autocompletion
+  {
     'saghen/blink.cmp',
     event = 'VimEnter',
     version = '1.*',
@@ -31,6 +42,9 @@ return {
         opts = {},
       },
       'folke/lazydev.nvim',
+
+      -- For nvim-cmp sources
+      -- 'monkoose/nvlime',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -57,7 +71,7 @@ return {
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'enter',
+        preset = 'default',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -76,9 +90,26 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev' }, -- , 'nvlime' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          -- nvlime = {
+          --   name = 'nvlime',
+          --   module = 'blink.compat.source',
+          --   -- This tells blink to look for the nvim-cmp source named 'nvlime'
+          --   score_offset = 100, -- Optional: give it higher priority for Lisp files
+          --   enabled = function()
+          --     return vim.bo.filetype == 'lisp' and vim.fn.exists '*nvlime#connection#Get' == 1 and vim.fn['nvlime#connection#Get']() ~= vim.NIL
+          --   end,
+          --   transform_items = function(_, items)
+          --     for _, item in ipairs(items) do
+          --       item.kind = nil
+          --       -- Set a fallback label if the item label is somehow missing
+          --       item.label = item.label or 'lisp-symbol'
+          --     end
+          --     return items
+          --   end,
+          -- },
         },
       },
 
