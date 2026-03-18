@@ -11,7 +11,7 @@ return {
       workspaces = {
         {
           name = 'Obsidian',
-          path = '~/Documents/github/texts/Obsidian',
+          path = '~/Documents/github/texts/obs_notes/',
         },
       },
       -- see below for full list of options 👇
