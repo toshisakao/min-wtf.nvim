@@ -44,3 +44,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- japanese IME thingy
+--
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function()
+    os.execute 'ibus engine xkb:se::swe'
+  end,
+})
