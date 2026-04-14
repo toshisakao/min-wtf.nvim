@@ -19,20 +19,32 @@ return {
         ${header}
         ${content}]],
           },
+	  -- hack to make typst math in markdown instead of latex.
+        --   latex = {
+        --     tpl = [[
+        -- #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
+        -- #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
+        -- #set text(size: 12pt, fill: rgb("${color}"))
+        -- ${header}
+        -- $ ${content}$]],
+        --   },
+          -- ORIGINAL latex part
           latex = {
             font_size = 'Large', -- see https://www.sascha-frank.com/latex-font-size.html
             -- for latex documents, the doc packages are included automatically,
             -- but you can add more packages here. Useful for markdown documents.
-            packages = { 'amsmath', 'amssymb', 'amsfonts', 'amscd', 'mathtools' },
+	    --
+	    -- idk if bussproofs work? need to look into this
+            packages = { 'amsmath', 'amssymb', 'amsfonts', 'amscd', 'mathtools', 'bussproofs' },
             tpl = [[
-        \documentclass[preview,border=0pt,varwidth,12pt]{standalone}
-        \usepackage{${packages}}
-        \begin{document}
-        ${header}
-        { \${font_size} \selectfont
-          \color[HTML]{${color}}
-        ${content}}
-        \end{document}]],
+          \documentclass[preview,border=0pt,varwidth,12pt]{standalone}
+          \usepackage{${packages}}
+          \begin{document}
+          ${header}
+          { \${font_size} \selectfont
+            \color[HTML]{${color}}
+          ${content}}
+          \end{document}]],
           },
         },
       },

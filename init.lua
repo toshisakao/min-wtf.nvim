@@ -22,6 +22,8 @@ require 'options'
 
 require 'keymaps'
 
+require 'auto-commands'
+
 require 'lazy-bootstrap'
 
 require 'lazy-plugins'
