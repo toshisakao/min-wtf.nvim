@@ -32,16 +32,19 @@ return {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+
+              require('luasnip').filetype_extend('markdown', { 'tex' })
+            end,
+          },
         },
         opts = {},
       },
       'folke/lazydev.nvim',
+      'erooke/blink-cmp-latex', -- The native blink latex source
 
       -- For nvim-cmp sources
       -- 'monkoose/nvlime',
@@ -90,9 +93,30 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' }, -- , 'nvlime' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'latex' }, -- , 'nvlime' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+
+          latex = {
+            name = 'Latex',
+            module = 'blink-cmp-latex',
+            score_offset = 100, -- Optional: give it higher priority for math symbols
+            enabled = function()
+              return true
+              -- -- Enable in tex files or markdown math zones
+              -- if vim.bo.filetype == 'tex' then
+              --   return true
+              -- end
+              -- if vim.bo.filetype == 'markdown' then
+              --   return in_math_zone()
+              -- end
+              -- return false
+            end,
+            opts = {
+              insert_command = true, -- true = \alpha, false = α
+            },
+          },
+
           -- nvlime = {
           --   name = 'nvlime',
           --   module = 'blink.compat.source',

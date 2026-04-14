@@ -4,5 +4,11 @@
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
-  opts = {},
+  config = function()
+    require('nvim-autopairs').setup {}
+    local Rule = require 'nvim-autopairs.rule'
+    local npairs = require 'nvim-autopairs'
+
+    npairs.add_rule(Rule('$', '$', { 'markdown', 'tex' }))
+  end,
 }
