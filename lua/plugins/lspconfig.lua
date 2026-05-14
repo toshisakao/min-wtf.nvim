@@ -258,6 +258,38 @@ return { -- LSP Plugins
         },
       })
       vim.lsp.enable 'lua_ls'
+
+      local lspconfig = require("lspconfig")
+      local configs = require("lspconfig.configs")
+      local util = require("lspconfig.util")
+
+      -- 1. Register the custom server definition if it doesn't exist
+      if not configs.prolog then
+        configs.prolog = {
+          default_config = {
+            cmd = {
+              "swipl",
+              "-g", "use_module(library(lsp_server)).",
+              "-g", "lsp_server:main",
+              "-t", "halt",
+              "--", "stdio",
+            },
+            filetypes = { "prolog" },
+            single_file_support = true,
+            root_dir = util.root_pattern(".git", "pack.pl"),
+            settings = {},
+          },
+          docs = {
+            description = [[Prolog LSP server]],
+          },
+        }
+      end
+
+      -- 2. Initialize the server using your Blink capabilities
+      lspconfig.prolog.setup({
+        capabilities = capabilities,
+      })
+      
     end,
   },
 }

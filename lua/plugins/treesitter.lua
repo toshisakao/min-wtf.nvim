@@ -19,7 +19,8 @@ return {
         'latex',
         'yaml',
         'typst',
-		'ocaml'
+		'ocaml',
+		'prolog'
       }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
