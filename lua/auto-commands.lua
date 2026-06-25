@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- For gnome
 -- -- japanese IME thingy
 -- -- Changes to swedish keyboard when leaving Insert mode
 -- vim.api.nvim_create_autocmd('InsertLeave', {
@@ -55,3 +56,33 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --     end
 --   end,
 -- })
+
+-- japanese IME thingy for KDE fcitz5
+-- Keeps track of whether Japanese IME was active when we left Insert mode
+local was_ime_active = false
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function()
+    -- 1. Check current fcitx5 status.
+    -- vim.fn.system runs synchronously but it's near-instant for fcitx5-remote.
+    local status = vim.fn.system('fcitx5-remote'):gsub('%s+', '')
+
+    -- 2. If status is "2", Japanese was active. Save that state.
+    if status == '2' then
+      was_ime_active = true
+      -- 3. Deactivate the IME asynchronously, dropping back to Swedish
+      vim.fn.jobstart { 'fcitx5-remote', '-c' }
+    else
+      was_ime_active = false
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('InsertEnter', {
+  callback = function()
+    -- If Japanese was active when we left, turn it back on
+    if was_ime_active then
+      vim.fn.jobstart { 'fcitx5-remote', '-o' }
+    end
+  end,
+})
