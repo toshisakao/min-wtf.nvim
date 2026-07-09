@@ -55,6 +55,7 @@
   "tokyonight.nvim": { "branch": "main", "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd" },
   "tomorrow": { "branch": "master", "commit": "fd25d3be7558b9f9533837f25d7b31d31438287b" },
   "treesj": { "branch": "main", "commit": "186084dee5e9c8eec40f6e39481c723dd567cb05" },
+  "typst-preview.nvim": { "branch": "master", "commit": "325036ee145ca51d9efb145c09ac16bce3bc8b7d" },
   "venv-selector.nvim": { "branch": "main", "commit": "d4367f29df803e1fe79c0aa8e4c6250cd0ff0e5f" },
   "vim-lark-syntax": { "branch": "master", "commit": "e59976afd02b4c5ac36818ad0076c04c1584336a" },
   "vim-spec-tackle-syntax": { "branch": "main", "commit": "93cce7e3e022d6277bf14372bfa9fbc54f18f691" },

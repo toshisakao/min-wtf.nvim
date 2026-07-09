@@ -75,3 +75,4 @@ vim.o.confirm = true
 vim.opt["tabstop"] = 4
 vim.opt["shiftwidth"] = 4
 
+vim.g.filetype_pl = "prolog"
