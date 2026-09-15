@@ -37,11 +37,17 @@ return {
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         c = { 'clang-format' },
-		ocaml = { 'ocamlformat' },
+        ocaml = { 'ocamlformat' },
       },
       formatters = {
         black = {
           prepend_args = { '--fast', '--line-length 150' },
+        },
+        -- Add the clang-format configuration here:
+        ['clang-format'] = {
+          -- ColumnLimit: 0 disables line wrapping entirely.
+          -- If you just want wider lines, change 0 to your preferred width (e.g., 120 or 150)
+          prepend_args = { '-style={ColumnLimit: 0}' },
         },
       },
     },

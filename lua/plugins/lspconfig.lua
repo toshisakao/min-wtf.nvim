@@ -219,6 +219,7 @@ return { -- LSP Plugins
       vim.list_extend(ensure_installed, {
         'lua_ls', -- Lua Language server
         'stylua', -- Used to format Lua code
+        'tinymist',
         -- You can add other tools here that you want Mason to install
       })
 
@@ -263,7 +264,7 @@ return { -- LSP Plugins
       local configs = require 'lspconfig.configs'
       local util = require 'lspconfig.util'
 
-      vim.lsp.enable('clangd')
+      vim.lsp.enable 'clangd'
 
       -- 1. Register the custom server definition if it doesn't exist
       if not configs.prolog then
@@ -294,6 +295,16 @@ return { -- LSP Plugins
       -- 2. Initialize the server using your Blink capabilities
       lspconfig.prolog.setup {
         capabilities = capabilities,
+      }
+
+      vim.lsp.enable 'tinymist'
+      vim.lsp.config['tinymist'] = {
+        cmd = { 'tinymist' },
+        filetypes = { 'typst' },
+        root_dir = function(fname)
+          return util.root_pattern 'typst.toml'(fname) or util.root_pattern '.git'(fname) or vim.fn.getcwd()
+        end,
+        settings = {},
       }
     end,
   },
