@@ -206,6 +206,12 @@ return { -- LSP Plugins
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
+        tinymist = {
+          settings = {
+            -- You can put custom tinymist settings here if needed
+            exportPdf = "never", 
+          }
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -297,15 +303,6 @@ return { -- LSP Plugins
         capabilities = capabilities,
       }
 
-      vim.lsp.enable 'tinymist'
-      vim.lsp.config['tinymist'] = {
-        cmd = { 'tinymist' },
-        filetypes = { 'typst' },
-        root_dir = function(fname)
-          return util.root_pattern 'typst.toml'(fname) or util.root_pattern '.git'(fname) or vim.fn.getcwd()
-        end,
-        settings = {},
-      }
     end,
   },
 }

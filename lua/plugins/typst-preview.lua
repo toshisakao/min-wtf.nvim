@@ -11,7 +11,7 @@ return {
 
       dependencies_bin = {
         tinymist = vim.fn.stdpath 'data' .. '/mason/bin/tinymist',
-        websocat = nil,
+        websocat = vim.fn.expand '~/.cargo/bin/websocat',
       },
 
       -- A list of extra arguments (or nil) to be passed to previewer.
