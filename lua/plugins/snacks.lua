@@ -11,14 +11,14 @@ return {
           -- between a start/end header comment. Comment syntax is language-specific.
           -- * start comment: `// snacks: header start`
           -- * end comment:   `// snacks: header end`
-          typst = {
-            tpl = [[
-        #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
-        #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
-        #set text(size: 12pt, fill: rgb("${color}"))
-        ${header}
-        ${content}]],
-          },
+        --   typst = {
+        --     tpl = [[
+        -- #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
+        -- #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
+        -- #set text(size: 12pt, fill: rgb("${color}"))
+        -- ${header}
+        -- ${content}]],
+        --   },
 	  -- hack to make typst math in markdown instead of latex.
         --   latex = {
         --     tpl = [[

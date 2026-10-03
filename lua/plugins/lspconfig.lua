@@ -207,10 +207,11 @@ return { -- LSP Plugins
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         tinymist = {
+          root_markers = { 'typst.toml', '.git' },
           settings = {
             -- You can put custom tinymist settings here if needed
-            exportPdf = "never", 
-          }
+            exportPdf = 'never',
+          },
         },
       }
 
@@ -302,7 +303,6 @@ return { -- LSP Plugins
       lspconfig.prolog.setup {
         capabilities = capabilities,
       }
-
     end,
   },
 }
